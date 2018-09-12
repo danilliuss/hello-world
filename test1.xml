@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddoTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ContextId>00000000-0000-0000-0000-000000000001</ContextId>
+		<Name>Тест лабораторные показатели</Name>
+		<ContextCode>hlt</ContextCode>
+		<Views>
+				<TemplateView>
+						<TemplateId>4780f534-7fa3-e711-941a-ee15cc7be9f91</TemplateId>
+						<Data>&lt;?xml version='1.0' encoding='UTF-8' /&gt;
+    &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'&gt;
+    &lt;html xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;script type="text/javascript"&gt;function isPrint(){ return false; }&lt;/script&gt;&lt;script type="text/javascript"&gt;
+/* TM:Template 
+Author: Автор1
+Date: 07.09.2018
+*/
+&lt;/script&gt;
+        &lt;!--script--&gt;
+       &lt;script type="text/javascript"&gt;
+ 
+            (function(){
+                function abs(number) {
+                    return Math.abs(number) || 0;
+                }
+
+                function pluralForm(n) {
+                    var forms = ['год', 'года', 'лет'];
+                    var n = abs(n) % 100;
+                    var n1 = n % 10;
+
+                    if (n &gt; 10 &amp;&amp; n &lt; 20) {
+                        return forms[2];
+                    }
+
+                    if (n1 &gt; 1 &amp;&amp; n1 &lt; 5) {
+                        return forms[1];
+                    }
+
+                    if (n1 === 1) {
+                        return forms[0];
+                    }
+
+                    return forms[2];
+                }
+
+                function calculateAge(dateStr) {
+                    if (dateStr === '') {
+                        return null;
+                    }
+
+                    var dateArr = dateStr.split('.');
+
+                    if (dateArr.length !== 3) {
+                        return null;
+                    }
+
+                    var birthDate = new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+                    var today = new Date();
+
+                    var age = today.getFullYear() - birthDate.getFullYear();
+                    var m = today.getMonth() - birthDate.getMonth();
+
+                    if (m &lt; 0 || (m === 0 &amp;&amp; today.getDate() &lt; birthDate.getDate())) {
+                        age--;
+                    }
+
+                    return age;
+                }
+
+                $(function() {
+                    var age = calculateAge($('#birthday span').text());
+                    var ageSuffix = pluralForm(age);
+
+                    $('#age').text(age);
+                    $('#ageSuffix').text(ageSuffix);
+                });
+
+            })();
+
+        &lt;/script&gt;
+        &lt;head&gt;
+            &lt;title&gt;&lt;/title&gt;
+            &lt;meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /&gt;           
+        &lt;/head&gt;
+        &lt;body style="font-face: Arial;"&gt;
+        
+&lt;div class="template-header gost-template-header" contenteditable="false" style="margin:0; padding:12px 40px; color:#999999; background-color:#e8e8e8; display: block; line-height: 20px;"&gt;
+  &lt;p style="padding:0; margin: 0; display: inline-block; width:514px; float:left;"&gt;
+      &lt;span id="gost1" hide-when-empty="true" value-type="#rf_VisitHistoryID.rf_MKABID.NAME# #rf_VisitHistoryID.rf_MKABID.OT# #rf_VisitHistoryID.rf_MKABID.FAMILY#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold"&gt;
+        &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Пациент:&lt;/label&gt;
+        &lt;span class="span-value" id="gostValue1" style="font-weight: bold;" data-mce-style="font-weight: bold;" value-type="predefined-data" type="#rf_VisitHistoryID.rf_MKABID.NAME# #rf_VisitHistoryID.rf_MKABID.OT# #rf_VisitHistoryID.rf_MKABID.FAMILY#"&gt;#rf_VisitHistoryID.rf_MKABID.NAME# #rf_VisitHistoryID.rf_MKABID.OT# #rf_VisitHistoryID.rf_MKABID.FAMILY#&lt;/span&gt;
+        &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+      &lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p style="padding:0; margin: 0; display: inline-block;"&gt;
+      &lt;span id="gost2" hide-when-empty="true" value-type="#Date#" value-data-type="date" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold" outputcurrentdate="true"&gt;
+        &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Дата осмотра:&lt;/label&gt;
+        &lt;input id="gostValue2" name="gostValue6" class="calendar" type="text" style="background: rgb(235, 235, 235);width:65px;" value="" value-type="predefined-data" value-data-type="date" type="#Date#" data-label="" data-mce-style="background: rgb(235, 235, 235);width:65px;" /&gt;
+        &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+      &lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p style="padding:0; margin: 0 20px 0 0;display:inline-block;float: left;"&gt;
+      &lt;span id="birthday" hide-when-empty="true" value-type="#rf_VisitHistoryID.rf_MKABID.DATE_BD#" value-data-type="date" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false"&gt;
+          &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Дата рождения:&lt;/label&gt;
+          &lt;span class="span-value" id="gostValue3" style="font-weight: bold;" data-mce-style="font-weight: bold;" value-type="predefined-data" type="#rf_VisitHistoryID.rf_MKABID.DATE_BD#"&gt;#rf_VisitHistoryID.rf_MKABID.DATE_BD#&lt;/span&gt;
+          &lt;label class="label-help"&gt;&lt;/label&gt;
+      &lt;/span&gt;
+      &lt;span style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;, &lt;/span&gt;
+      &lt;span id="age" style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;&lt;/span&gt;
+      &lt;span id="ageSuffix" style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;лет&lt;/span&gt;
+   &lt;/p&gt;
+   &lt;p style="padding:0; margin: 0;display:inline-block;"&gt;
+     &lt;span id="gost4" hide-when-empty="true" value-type="#rf_VisitHistoryID.rf_MKABID.S_POL# #rf_VisitHistoryID.rf_MKABID.N_POL#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold"&gt;
+     &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Полис:&lt;/label&gt;
+     &lt;span class="span-value" id="gostValue4" style="font-weight: bold;" data-mce-style="font-weight: bold;" value-type="predefined-data" type="#rf_VisitHistoryID.rf_MKABID.S_POL# #rf_VisitHistoryID.rf_MKABID.N_POL#"&gt;#rf_VisitHistoryID.rf_MKABID.S_POL# #rf_VisitHistoryID.rf_MKABID.N_POL#&lt;/span&gt;
+     &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+     &lt;/span&gt;
+   &lt;/p&gt;
+   &lt;p style="padding:0; margin: 0;"&gt;
+     &lt;span id="gost5" hide-when-empty="true" value-type="&amp;nbsp;Классификатор типов записей" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false"&gt;
+     &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;ТИП ЭМПЗ:&lt;/label&gt;
+     &lt;span class="span-value" id="gostValue5" value-type="predefined-data" style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;Лабораторные исследования&lt;/span&gt;
+     &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+     &lt;/span&gt;
+   &lt;/p&gt;
+&lt;/div&gt;
+        &lt;div id="temp-title" class="template-title"&gt;Московский областной центр охраны материнства и детства&lt;br /&gt;&lt;/div&gt;        
+        &lt;div class='template-header' contenteditable='false' style="height: 1px; margin:0; padding:0; color:#999999;"&gt;
+            &amp;nbsp;
+        &lt;/div&gt;
+        &lt;div class="template-body1" id="temp-part1"&gt;
+		
+		Исследование крови методом ИФА 
+&lt;table class="laboratory" style="margin: 25px 0; border-spacing: 0; height: 122px; border: 0; border-bottom: 1px solid #c1c1c1;"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        Показатель
+      &lt;/td&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        Единица измерения
+      &lt;/td&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        Результат
+      &lt;/td&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        Норма
+      &lt;/td&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; border-right: 1px solid #c1c1c1; text-align: center; font-size: 14px;"&gt;
+        Примечание
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;ПСА&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;СА-125&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;КЭА&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;АФП&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;СА-15,3&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;СА-19,3&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+		
+		&lt;/div&gt;
+
+&lt;div class="template-footer print_no" contenteditable="false" style="height:auto;margin:0; padding:12px 40px; background-color:#e8e8e8;font-size:12px;"&gt;
+    &lt;div style="color:#999999;display:table;padding:0;"&gt;
+      &lt;div style="display:table-row;padding:0;" data-mce-style="display:table-row;padding:0;"&gt;
+        &lt;div style="width: 320px;display:table-cell;padding:0;float:left;" data-mce-style="width: 320px;display:table-cell;padding:0;float:left;"&gt;
+          &lt;p style="padding:0; margin:0;"&gt;
+            &lt;span id="gost9" hide-when-empty="true" value-type="#Guid#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-size:12px;font-weight:normal;" data-mce-style="display: inline; margin-bottom: 5px;font-size:12px;font-weight:normal;"&gt;ЭПМЗ:&lt;/label&gt;
+            &lt;span class="span-value" id="gostValue9" value-type="predefined-data" type="#Guid#" style="font-weight: bold;" data-mce-style="font-weight:bold;"&gt;#Guid#&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="padding:0 10px;width: 230px;display:table-cell;float:left;" data-mce-style="padding:0 10px;width: 230px;display:table-cell;float:left;"&gt;
+          &lt;p style="padding:0; margin:0;"&gt;
+              &lt;span id="gost10" left="true" data-label="" class="non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" value-data-type="date"&gt;
+                  &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight:normal;font-size:12px;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;"&gt;Дата создания:&lt;/label&gt;
+                  &lt;input class="calendar" type="text" id="gostValue10" style="background: rgb(235, 235, 235);width:65px;" data-mce-style="background: rgb(235, 235, 235);width:65px;" value-data-type="date" /&gt;
+                  &lt;label class="label-help"&gt;&lt;/label&gt;
+              &lt;/span&gt;
+           &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="width: 140px;display:table-cell;padding:0;float:right;" data-mce-style="width: 140px;display:table-cell;padding:0;float:right;"&gt;
+          &lt;p style="padding:0; margin: 0;"&gt;
+            &lt;span id="gost11" hide-when-empty="true" left="true" data-label="" class="non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Шаблон&amp;nbsp;№&amp;nbsp;&lt;/label&gt;
+            &lt;span id="gostValue11" class="span-value" style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;22016&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div style="display:table-row;padding:0;" data-mce-style="display:table-row;padding:0;"&gt;
+        &lt;div style="width: 320px;display:table-cell;padding:0;float:left;" data-mce-style="width: 320px;display:table-cell;padding:0;float:left;"&gt;
+          &lt;p style="padding:0; margin:0;"&gt;
+            &lt;span id="gost12" hide-when-empty="true" value-type="#CreateUserName#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;"&gt;Создатель:&lt;/label&gt;
+            &lt;span class="span-value" id="gostValue12" style="font-weight: bold;" data-mce-style="font-weight: bold;" value-type="predefined-data" type="#CreateUserName#"&gt;#CreateUserName#&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="padding:0 10px;width: 240px;display:table-cell;float:left;" data-mce-style="padding:0 10px;width: 240px;display:table-cell;float:left;"&gt;
+          &lt;p style="padding:0; margin:0;"&gt;
+            &lt;span id="gost13" hide-when-empty="true" value-type="#rf_CreateUserID#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;"&gt;Идентификатор:&lt;/label&gt;
+            &lt;span class="span-value" id="gostValue13" style="font-weight: bold;" data-mce-style="font-weight: bold;" value-type="predefined-data" type="#rf_CreateUserID#"&gt;#rf_CreateUserID#&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        
+&lt;div class="template-footer" contenteditable="false" style="height:30px; margin:0; padding:12px 40px; background-color:#e8e8e8;"&gt;
+    &lt;div style="color:#999999;display:table;padding: 0;"&gt;
+      &lt;div style="display:table-row;padding:0;" data-mce-style="display:table-row;padding:0;"&gt;
+        &lt;div style="width: 180px;display:table-cell;padding:0;float:left" data-mce-style="width: 180px;display:table-cell;padding:0;float:left"&gt; &lt;!-- врач --&gt;
+          &lt;p style="padding:0; margin: 0;"&gt;
+            &lt;span id="gost6" hide-when-empty="true" value-type="#rf_LPUDoctorID.SS#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: bold;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: bold;"&gt;Врач:&lt;/label&gt;
+            &lt;span class="span-value" id="gostValue6"&gt;_______________&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="padding:0 10px;width: 384px;display:table-cell;float:left" data-mce-style="padding:0 10px;width: 384px;display:table-cell;float:left"&gt; &lt;!-- автор --&gt;
+          &lt;p style="padding:0; margin: 0;"&gt;
+            &lt;span id="gost7" hide-when-empty="true" value-type="#rf_LPUDoctorID.IM_V# #rf_LPUDoctorID.OT_V# #rf_LPUDoctorID.FAM_V#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px;font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px;font-weight: normal;"&gt;Автор:&lt;/label&gt;
+            &lt;span class="span-value" id="gostValue7" style="font-weight: bold;" data-mce-style="font-weight: bold;" value-type="predefined-data" type="#rf_LPUDoctorID.IM_V# #rf_LPUDoctorID.OT_V# #rf_LPUDoctorID.FAM_V#"&gt;#rf_LPUDoctorID.IM_V# #rf_LPUDoctorID.OT_V# #rf_LPUDoctorID.FAM_V#&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="width: 130px;display:table-cell;padding:0;float:right;" data-mce-style="width: 130px;display:table-cell;padding:0;float:right"&gt; &lt;!-- дата --&gt;
+          &lt;p style="padding:0; margin: 0;"&gt;
+            &lt;span id="gost8" hide-when-empty="true" value-type="#EventDataTime#" value-data-type="date" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px;font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px;font-weight: normal;"&gt;Дата:&lt;/label&gt;
+            &lt;span class="span-value" id="gostValue8" style="font-weight: bold;" data-mce-style="font-weight: bold;" value-type="predefined-data" type="#EventDataTime#"&gt;#EventDataTime#&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</Data>
+						<Type>EditView</Type>
+				</TemplateView>
+				<TemplateView>
+						<TemplateId>4780f534-7fa3-e711-941a-ee15cc7be9f9</TemplateId>
+						<Data>&lt;?xml version='1.0' encoding='UTF-8' /&gt;
+    &lt;!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'&gt;
+    &lt;html xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;script type="text/javascript"&gt;function compressInPrintMode(){ return true; }&lt;/script&gt;&lt;script type="text/javascript"&gt;function isPrint(){ return true; }&lt;/script&gt;&lt;script type="text/javascript"&gt;
+/* TM:Template 
+Author: Агеев Андрей
+Date: 07.09.2018
+*/
+&lt;/script&gt;
+        &lt;!--script--&gt;
+       &lt;script type="text/javascript"&gt;
+ 
+            (function(){
+                function abs(number) {
+                    return Math.abs(number) || 0;
+                }
+
+                function pluralForm(n) {
+                    var forms = ['год', 'года', 'лет'];
+                    var n = abs(n) % 100;
+                    var n1 = n % 10;
+
+                    if (n &gt; 10 &amp;&amp; n &lt; 20) {
+                        return forms[2];
+                    }
+
+                    if (n1 &gt; 1 &amp;&amp; n1 &lt; 5) {
+                        return forms[1];
+                    }
+
+                    if (n1 === 1) {
+                        return forms[0];
+                    }
+
+                    return forms[2];
+                }
+
+                function calculateAge(dateStr) {
+                    if (dateStr === '') {
+                        return null;
+                    }
+
+                    var dateArr = dateStr.split('.');
+
+                    if (dateArr.length !== 3) {
+                        return null;
+                    }
+
+                    var birthDate = new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+                    var today = new Date();
+
+                    var age = today.getFullYear() - birthDate.getFullYear();
+                    var m = today.getMonth() - birthDate.getMonth();
+
+                    if (m &lt; 0 || (m === 0 &amp;&amp; today.getDate() &lt; birthDate.getDate())) {
+                        age--;
+                    }
+
+                    return age;
+                }
+
+                $(function() {
+                    var age = calculateAge($('#birthday span').text());
+                    var ageSuffix = pluralForm(age);
+
+                    $('#age').text(age);
+                    $('#ageSuffix').text(ageSuffix);
+                });
+
+            })();
+
+        &lt;/script&gt;
+        &lt;head&gt;
+            &lt;title&gt;&lt;/title&gt;
+            &lt;meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /&gt;           
+        &lt;/head&gt;
+        &lt;body style="font-face: Arial;"&gt;
+        
+&lt;div class="template-header gost-template-header" contenteditable="false" style="margin:0; padding:12px 40px; color:#999999; background-color:#e8e8e8; display: block; line-height: 20px;"&gt;
+  &lt;p style="padding:0; margin: 0; display: inline-block; width:514px; float:left;"&gt;
+      &lt;span id="gost1" hide-when-empty="true" value-type="#rf_VisitHistoryID.rf_MKABID.NAME# #rf_VisitHistoryID.rf_MKABID.OT# #rf_VisitHistoryID.rf_MKABID.FAMILY#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold"&gt;
+        &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Пациент:&lt;/label&gt;
+        &lt;span span-not-delete="span-not-delete"&gt;$gostValue1$&lt;/span&gt;
+        &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+      &lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p style="padding:0; margin: 0; display: inline-block;"&gt;
+      &lt;span id="gost2" hide-when-empty="true" value-type="#Date#" value-data-type="date" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold" outputcurrentdate="true"&gt;
+        &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Дата осмотра:&lt;/label&gt;
+        &lt;span span-not-delete="span-not-delete"&gt;$gostValue2$&lt;/span&gt;
+        &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+      &lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p style="padding:0; margin: 0 20px 0 0;display:inline-block;float: left;"&gt;
+      &lt;span id="birthday" hide-when-empty="true" value-type="#rf_VisitHistoryID.rf_MKABID.DATE_BD#" value-data-type="date" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false"&gt;
+          &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Дата рождения:&lt;/label&gt;
+          &lt;span span-not-delete="span-not-delete"&gt;$gostValue3$&lt;/span&gt;
+          &lt;label class="label-help"&gt;&lt;/label&gt;
+      &lt;/span&gt;
+      &lt;span style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;, &lt;/span&gt;
+      &lt;span id="age" style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;&lt;/span&gt;
+      &lt;span id="ageSuffix" style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;лет&lt;/span&gt;
+   &lt;/p&gt;
+   &lt;p style="padding:0; margin: 0;display:inline-block;"&gt;
+     &lt;span id="gost4" hide-when-empty="true" value-type="#rf_VisitHistoryID.rf_MKABID.S_POL# #rf_VisitHistoryID.rf_MKABID.N_POL#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold"&gt;
+     &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Полис:&lt;/label&gt;
+     &lt;span span-not-delete="span-not-delete"&gt;$gostValue4$&lt;/span&gt;
+     &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+     &lt;/span&gt;
+   &lt;/p&gt;
+   &lt;p style="padding:0; margin: 0;"&gt;
+     &lt;span id="gost5" hide-when-empty="true" value-type="&amp;nbsp;Классификатор типов записей" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false"&gt;
+     &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;ТИП ЭМПЗ:&lt;/label&gt;
+     &lt;span class="span-value" id="gostValue5" value-type="predefined-data" style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;Лабораторные исследования&lt;/span&gt;
+     &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+     &lt;/span&gt;
+   &lt;/p&gt;
+&lt;/div&gt;
+
+        &lt;div id="temp-title" class="template-title"&gt;Московский областной центр охраны материнства и детства&lt;br /&gt;&lt;/div&gt;        
+        &lt;div class='template-header' contenteditable='false' style="height: 1px; margin:0; padding:0; color:#999999;"&gt;
+            &amp;nbsp;
+        &lt;/div&gt;
+        &lt;div class="template-body1 print-view" id="temp-part1"&gt;
+		Исследование крови методом ИФА 
+&lt;table class="laboratory" style="margin: 25px 0; border-spacing: 0; height: 122px; border: 0; border-bottom: 1px solid #c1c1c1;"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        Показатель
+      &lt;/td&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        Единица измерения
+      &lt;/td&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        Результат
+      &lt;/td&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        Норма
+      &lt;/td&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; border-right: 1px solid #c1c1c1; text-align: center; font-size: 14px;"&gt;
+        Примечание
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;ПСА&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;СА-125&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;КЭА&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;АФП&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;СА-15,3&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;!-- Показатель --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;span type="DynamicSeparator" id="spanUnderline2"&gt;&lt;/span&gt;&lt;span id="spanMU4" class="span-value" type="spanOption" value="ПСА"&gt;СА-19,3&lt;/span&gt;
+      &lt;/td&gt;
+	  &lt;!-- Единица измерения --&gt;
+      &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText34" /&gt;
+      &lt;/td&gt;
+      &lt;!-- Результат --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Норма --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText35" /&gt;&lt;/td&gt;
+      &lt;!-- Примечание --&gt;
+	  &lt;td hide-when-empty="false" style="border: 0; border-left: 1px solid #c1c1c1; border-top: 1px solid #c1c1c1; border-right: 1px solid #c1c1c1; height: 25px; text-align: center; font-size: 14px;"&gt;
+        &lt;input type="text" style="border: 0; width: 36px; height: 21px; padding: 2px; text-align: center; font-size: 14px;" class="dentition-input" id="singleLineText36" /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+		
+		&lt;/div&gt;
+
+&lt;div class="template-footer print_no" contenteditable="false" style="height:auto;margin:0; padding:12px 40px; background-color:#e8e8e8;font-size:12px;"&gt;
+    &lt;div style="color:#999999;display:table;padding:0;"&gt;
+      &lt;div style="display:table-row;padding:0;" data-mce-style="display:table-row;padding:0;"&gt;
+        &lt;div style="width: 320px;display:table-cell;padding:0;float:left;" data-mce-style="width: 320px;display:table-cell;padding:0;float:left;"&gt;
+          &lt;p style="padding:0; margin:0;"&gt;
+            &lt;span id="gost9" hide-when-empty="true" value-type="#Guid#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-size:12px;font-weight:normal;" data-mce-style="display: inline; margin-bottom: 5px;font-size:12px;font-weight:normal;"&gt;ЭПМЗ:&lt;/label&gt;
+            &lt;span span-not-delete="span-not-delete"&gt;$gostValue9$&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="padding:0 10px;width: 230px;display:table-cell;float:left;" data-mce-style="padding:0 10px;width: 230px;display:table-cell;float:left;"&gt;
+          &lt;p style="padding:0; margin:0;"&gt;
+              &lt;span id="gost10" left="true" data-label="" class="non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" value-data-type="date"&gt;
+                  &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight:normal;font-size:12px;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;"&gt;Дата создания:&lt;/label&gt;
+                  &lt;span span-not-delete="span-not-delete"&gt;$gostValue10$&lt;/span&gt;
+                  &lt;label class="label-help"&gt;&lt;/label&gt;
+              &lt;/span&gt;
+           &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="width: 140px;display:table-cell;padding:0;float:right;" data-mce-style="width: 140px;display:table-cell;padding:0;float:right;"&gt;
+          &lt;p style="padding:0; margin: 0;"&gt;
+            &lt;span id="gost11" hide-when-empty="true" left="true" data-label="" class="non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;"&gt;Шаблон&amp;nbsp;№&amp;nbsp;&lt;/label&gt;
+            &lt;span id="gostValue11" class="span-value" style="font-weight: bold;" data-mce-style="font-weight: bold;"&gt;22016&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div style="display:table-row;padding:0;" data-mce-style="display:table-row;padding:0;"&gt;
+        &lt;div style="width: 320px;display:table-cell;padding:0;float:left;" data-mce-style="width: 320px;display:table-cell;padding:0;float:left;"&gt;
+          &lt;p style="padding:0; margin:0;"&gt;
+            &lt;span id="gost12" hide-when-empty="true" value-type="#CreateUserName#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;"&gt;Создатель:&lt;/label&gt;
+            &lt;span span-not-delete="span-not-delete"&gt;$gostValue12$&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="padding:0 10px;width: 240px;display:table-cell;float:left;" data-mce-style="padding:0 10px;width: 240px;display:table-cell;float:left;"&gt;
+          &lt;p style="padding:0; margin:0;"&gt;
+            &lt;span id="gost13" hide-when-empty="true" value-type="#rf_CreateUserID#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: normal;font-size:12px;"&gt;Идентификатор:&lt;/label&gt;
+            &lt;span span-not-delete="span-not-delete"&gt;$gostValue13$&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        
+&lt;div class="template-footer" contenteditable="false" style="height:30px; margin:0; padding:12px 40px; background-color:#e8e8e8;"&gt;
+    &lt;div style="color:#999999;display:table;padding: 0;"&gt;
+      &lt;div style="display:table-row;padding:0;" data-mce-style="display:table-row;padding:0;"&gt;
+        &lt;div style="width: 180px;display:table-cell;padding:0;float:left" data-mce-style="width: 180px;display:table-cell;padding:0;float:left"&gt; &lt;!-- врач --&gt;
+          &lt;p style="padding:0; margin: 0;"&gt;
+            &lt;span id="gost6" hide-when-empty="true" value-type="#rf_LPUDoctorID.SS#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px; font-weight: bold;" data-mce-style="display: inline; margin-bottom: 5px; font-weight: bold;"&gt;Врач:&lt;/label&gt;
+            &lt;span class="span-value" id="gostValue6"&gt;_______________&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="padding:0 10px;width: 384px;display:table-cell;float:left" data-mce-style="padding:0 10px;width: 384px;display:table-cell;float:left"&gt; &lt;!-- автор --&gt;
+          &lt;p style="padding:0; margin: 0;"&gt;
+            &lt;span id="gost7" hide-when-empty="true" value-type="#rf_LPUDoctorID.IM_V# #rf_LPUDoctorID.OT_V# #rf_LPUDoctorID.FAM_V#" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px;font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px;font-weight: normal;"&gt;Автор:&lt;/label&gt;
+            &lt;span span-not-delete="span-not-delete"&gt;$gostValue7$&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div style="width: 130px;display:table-cell;padding:0;float:right;" data-mce-style="width: 130px;display:table-cell;padding:0;float:right"&gt; &lt;!-- дата --&gt;
+          &lt;p style="padding:0; margin: 0;"&gt;
+            &lt;span id="gost8" hide-when-empty="true" value-type="#EventDataTime#" value-data-type="date" left="true" data-type="predefined" data-label="" class="active non-delete" style="display: inline-block; vertical-align: top; font-weight: bold;" data-mce-style="display: inline-block; vertical-align: top; font-weight: bold;" contenteditable="false" font-weight="bold"&gt;
+            &lt;label class="label-title" style="display: inline; margin-bottom: 5px;font-weight: normal;" data-mce-style="display: inline; margin-bottom: 5px;font-weight: normal;"&gt;Дата:&lt;/label&gt;
+            &lt;span span-not-delete="span-not-delete"&gt;$gostValue8$&lt;/span&gt;
+            &lt;label class="label-help" display="block" style="display: block; padding-left: 2px;" data-mce-style="display: block; padding-left: 2px;"&gt;&lt;/label&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</Data>
+						<Type>PrintView</Type>
+				</TemplateView>
+		</Views>
+		<Labels />
+</AddoTemplate>
